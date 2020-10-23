@@ -6,28 +6,29 @@ git_source(:github) do |repo_name|
 end
 
 ruby '2.5.3'
-
 gem 'rails', '~> 5.2.4.3'
+
+gem 'bootstrap', '~> 4.4.1'
+gem 'bootsnap'
+gem 'coffee-rails', '~> 4.2'
+gem 'jbuilder', '~> 2.5'
+gem 'jsonapi-serializer'
+gem 'jquery-rails'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2'
-gem 'jbuilder', '~> 2.5'
-gem 'bootstrap', '~> 4.4.1'
-gem 'bootsnap'
-gem 'jquery-rails'
 
 
 group :development, :test do
   gem 'pry'
+  gem 'faker', '~> 2.14'
 end
 
 group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
-  gem 'faker'
   gem 'simplecov'
 end
 
