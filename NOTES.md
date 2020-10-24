@@ -29,3 +29,8 @@ Dione's advice
 Create a destination facade
   weather
   image (i would have to update the destination)
+
+
+original segment from show page
+
+<%= image_tag(@destination.image_url) %>
