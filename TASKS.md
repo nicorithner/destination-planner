@@ -33,9 +33,25 @@ When I visit "/"
 And I click on a destination
 Then I should be on page "/destinations/:id"
 Then I should see the destination's name, zipcode, description, and current weather
-The weather forecast is specific to the destination whose page I'm on
-The forecast should include date (weekday, month and day), current, high and low temps in Fahrenheit, and a summary (for example "light rain", "clear sky", etc.)
+The weather forecast is 
+  - [x] specific to the destination whose page I'm on
+      I am  using the zip code query to achieve this.
+  - [x] The forecast should include date (weekday, month and day), 
+  - [x] Current, high and low temps in Fahrenheit, and a 
+  - [x] summary (for example "light rain", "clear sky", etc.)
 ```
+
+#### To-do:
+
+- [x] Create features tests
+- [] Create routes
+- [x] Upgrade controller to display weather api results
+- [x] Create service and API call
+  - [x] Parse it
+- [x] Create Weather Poro
+- [x] Create Weather facade
+- [x] Create Weather service
+- [ ] Upgrade test to test for call and get it to pass
 
 2. ### Weather Image
 
