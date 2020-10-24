@@ -6,6 +6,8 @@ RSpec.describe "Destinations Show Page" do
         @dest_1 = Destination.create!(name: Faker::Address.city, zip: Faker::Address.zip, description: Faker::Lorem.sentence, image_url: Faker::Placeholdit.image)
         @dest_2 = Destination.create!(name: Faker::Address.city, zip: Faker::Address.zip, description: Faker::Lorem.sentence, image_url: Faker::Placeholdit.image)
         @dest_3 = Destination.create!(name: Faker::Address.city, zip: Faker::Address.zip, description: Faker::Lorem.sentence, image_url: Faker::Placeholdit.image)
+        
+        @weather = WeatherFacade.get_forecast(@destination.zip)
 
         visit '/'
         within(".row") do
@@ -24,20 +26,24 @@ RSpec.describe "Destinations Show Page" do
       end
 
       it "The weather forecast is specific to the destination whose page I'm on" do
-        expect(page).to have_content("Date:")
-        expect(page).to have_content("High Temperature: #{@dest_1.high} F - High Temperature: #{@dest_1.low} F")
-        expect(page).to have_content("summary: #{@dest_1.summary}")
 
-        #The forecast should include date (weekday, month and day), current, high and low temps in Fahrenheit, and a summary (for example "light rain", "clear sky", etc.)
+        # expect(page).to have_content("Today's Date Here weekday, month, day")
+        expect(page).to have_content("Max Temperature: #{@weather.temp_max} F - Min Temperature: #{@weather.temp_min} F")
+        expect(page).to have_content("Summary: #{@weather.description}")
+
       end
     end
   end
 end
 
+#The forecast should include date (weekday, month and day), current, high and low temps in Fahrenheit, and a summary (for example "light rain", "clear sky", etc.)
 # As a user
 # When I visit "/"
 # And I click on a destination
 # Then I should be on page "/destinations/:id"
 # Then I should see the destination's name, zipcode, description, and current weather
-# The weather forecast is specific to the destination whose page I'm on
-# The forecast should include date (weekday, month and day), current, high and low temps in Fahrenheit, and a summary (for example "light rain", "clear sky", etc.)
+# The weather forecast is 
+#   - [ ] specific to the destination whose page I'm on
+#   - [ ] The forecast should include date (weekday, month and day), 
+#   - [ ] Current, high and low temps in Fahrenheit, and a 
+#   - [ ] summary (for example "light rain", "clear sky", etc.)
