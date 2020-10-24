@@ -1,4 +1,5 @@
 class DestinationsController < ApplicationController
+
   before_action :set_destination, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -6,6 +7,11 @@ class DestinationsController < ApplicationController
   end
 
   def show
+    # binding.pry
+    @destination = Destination.find(params[:id])
+    
+    @weather = WeatherFacade.get_forecast(@destination.zip)
+    @time = Time.now
   end
 
   def new
