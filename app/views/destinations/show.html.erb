@@ -19,9 +19,14 @@
 
   <div class="row">
     <h4>Forecast for <%= @destination.name %>:</h4>
-
   </div>
-
+  <h5><%=@time.strftime(" %A, %m, %d")%></h5>
+<hr>
+  <p>Summary: <%=@weather.description%></p>
+  <p>Current temperature: <%=@weather.temp%> F</p>
+  <p>Max temperature: <%=@weather.temp_max%>F</p>
+  <p>Min temperature: <%=@weather.temp_min%>F</p>
+<hr>
   <div class="row">
     <%= link_to 'Edit', edit_destination_path(@destination) %> |
     <%= link_to 'Back', destinations_path %>
