@@ -7,10 +7,9 @@ class DestinationsController < ApplicationController
   end
 
   def show
-    # binding.pry
     @destination = Destination.find(params[:id])
-    
     @weather = WeatherFacade.get_forecast(@destination.zip)
+    @image = DestinationFacade.get_image(@weather.description)
     @time = Time.now
   end
 
