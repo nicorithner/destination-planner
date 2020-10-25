@@ -1,10 +1,13 @@
 class DestinationFacade
-  # Here I want to gather everything related to the destination:
-  #     - destination data including image.
-  #     - destination weather data from the weather facade.
+  def self.destination(id)
+    destination = Destination.find(id)
+    weather = WeatherFacade.get_forecast(destination.zip)
+    destination.update(image_url: get_image(weather.description) )
+    @destination_data = {destination: destination, weather: weather}
+  end
 
   def self.get_image(query)
-    url = ImageService.get_image_api(query)
-    Image.new(url)
+    url = Image.new(ImageService.get_image_api(query))
+    url.image_url
   end
 end
