@@ -9,7 +9,7 @@ class Seed
     50.times do |i|
       dest = Destination.create!(
         name: Faker::Address.city,
-        zip: Faker::Address.zip,
+        zip: 80202,
         description: Faker::Lorem.sentence,
         image_url: Faker::Placeholdit.image
       )

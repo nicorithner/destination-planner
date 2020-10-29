@@ -72,6 +72,13 @@ For this story, we will using the [Giphy API](https://developers.giphy.com/).
 * Request specs should be driving the creation of these routes.
 * Make sure create, update, and destroy work through Postman
 
+  #### To-do:
+    - [x] Set up CRUD
+    - [x] Routes
+    - [x] Serializers
+    - [x] Check with Postman
+
+
 4. ### Create External API endpoints for Destination Weather
 
 * Expose the information from challenges 1 and 2 in an api endpoint, including destination weather and a related image

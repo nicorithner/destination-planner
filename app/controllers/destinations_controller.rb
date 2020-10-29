@@ -8,8 +8,8 @@ class DestinationsController < ApplicationController
 
   def show
     destination_data = DestinationFacade.destination(params[:id])
-    @destination = destination_data[:destination]
-    @weather = destination_data[:weather]
+    @destination = destination_data.destination
+    @weather = destination_data.weather
     @time = Time.now
   end
 
