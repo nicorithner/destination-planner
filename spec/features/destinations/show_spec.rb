@@ -3,11 +3,12 @@ RSpec.describe "Destinations Show Page" do
   describe "As a Visitor" do
     describe "In 'destionations/:id'" do
       before :each do
-        @dest_1 = Destination.create!(name: Faker::Address.city, zip: Faker::Address.zip, description: Faker::Lorem.sentence, image_url: Faker::Placeholdit.image)
-        @dest_2 = Destination.create!(name: Faker::Address.city, zip: Faker::Address.zip, description: Faker::Lorem.sentence, image_url: Faker::Placeholdit.image)
-        @dest_3 = Destination.create!(name: Faker::Address.city, zip: Faker::Address.zip, description: Faker::Lorem.sentence, image_url: Faker::Placeholdit.image)
+
+        @dest_1 = Destination.create!(name: Faker::Address.city, zip: 80231, description: Faker::Lorem.sentence, image_url: Faker::Placeholdit.image)
+        @dest_2 = Destination.create!(name: Faker::Address.city, zip: 80231, description: Faker::Lorem.sentence, image_url: Faker::Placeholdit.image)
+        @dest_3 = Destination.create!(name: Faker::Address.city, zip: 80231, description: Faker::Lorem.sentence, image_url: Faker::Placeholdit.image)
         
-        @weather = WeatherFacade.get_forecast(@destination.zip)
+        @weather = WeatherFacade.get_forecast(@dest_1.zip)
 
         visit '/'
         within(".row") do
@@ -28,7 +29,8 @@ RSpec.describe "Destinations Show Page" do
       it "The weather forecast is specific to the destination whose page I'm on" do
 
         # expect(page).to have_content("Today's Date Here weekday, month, day")
-        expect(page).to have_content("Max Temperature: #{@weather.temp_max} F - Min Temperature: #{@weather.temp_min} F")
+        expect(page).to have_content("Max Temperature: #{@weather.temp_max} F")
+        expect(page).to have_content("Min Temperature: #{@weather.temp_min} F")
         expect(page).to have_content("Summary: #{@weather.description}")
 
       end
