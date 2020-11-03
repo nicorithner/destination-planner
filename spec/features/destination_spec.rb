@@ -1,0 +1,27 @@
+require 'rails_helper'
+
+RSpec.describe "Destination Show Page" do
+  describe "As a Visitor" do
+    before :each do
+      @dest_1 = Destination.create!( name: 'Denver', zip: '80202', description: 'Some place', image_url: 'https://place-puppy.com/300x300' )
+      @weather = WeatherService.get_weather(@dest_1)
+    end
+
+    it "Can see destination's info" do
+      visit root_path
+      click_on 'Show'
+      expect(path).to be("/destinations/#{@dest_1}")
+
+      expect(page).to have_content(@dest_1.name)
+      expect(page).to have_content(@dest_1.zip)
+      expect(page).to have_content(@dest_1.description)
+
+      within(".forecast") do
+        expect(page).to have_content(@weather.weather)
+        expect(page).to have_content(@weather.high)
+        expect(page).to have_content(@weather.low)
+        expect(page).to have_content(@weather.description)
+      end
+    end
+  end
+end
