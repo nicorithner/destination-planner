@@ -18,8 +18,14 @@
   <%= image_tag(@destination.image_url) %>
 
   <div class="row">
-    <h4>Forecast for <%= @destination.name %>:</h4>
-
+    <div class="forecast">
+      <h4>Forecast for <%= @destination.name %>:</h4>
+      <p>Date: <%=Time.now.strftime(" %A, %m, %d")%></p>
+      <p>Current Weather: <%= @weather.weather %></p>
+      <p>High: <%= @weather.high %></p>
+      <p>Low: <%= @weather.low %></p>
+      <p>Low: <%= @weather.description %></p>
+    </div>
   </div>
 
   <div class="row">
