@@ -16,6 +16,10 @@ class Api::V1::DestinationsController < ApplicationController
     render json: DestinationSerializer.new(Destination.update(params[:id], destination_params))
   end
 
+  def destroy
+    destination = Destination.find(params[:id])
+    render json: DestinationSerializer.new(destination.delete), status: :no_content
+  end
   private
     def destination_params
       params.permit( :id, :name, :zip, :description, :image_url )
