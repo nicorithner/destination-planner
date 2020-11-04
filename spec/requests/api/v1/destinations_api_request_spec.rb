@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe 'Expose RESTful API endpoints for Destinations' do
   it "Send a list of destinations" do
-    Destination.create!( id: 1, name: 'Denver', zip: '80202', description: 'Some place', image_url: 'https://place-puppy.com/300x300' )
-    Destination.create!( id: 2, name: 'Denver', zip: '80202', description: 'Another place', image_url: 'https://place-puppy.com/300x300' )
-    Destination.create!( id: 3, name: 'Denver', zip: '80202', description: 'This place', image_url: 'https://place-puppy.com/300x300' )
+    Destination.create!( name: 'Denver', zip: '80202', description: 'Some place', image_url: 'https://place-puppy.com/300x300' )
+    Destination.create!( name: 'Denver', zip: '80202', description: 'Another place', image_url: 'https://place-puppy.com/300x300' )
+    Destination.create!( name: 'Denver', zip: '80202', description: 'This place', image_url: 'https://place-puppy.com/300x300' )
 
     get '/api/v1/destinations'
     
@@ -24,7 +24,7 @@ describe 'Expose RESTful API endpoints for Destinations' do
   end
 
   it "can get one destination by its id" do
-    dest_1 = Destination.create!( id: 1, name: 'Denver', zip: '80202', description: 'Some place', image_url: 'https://place-puppy.com/300x300' )
+    dest_1 = Destination.create!( name: 'Denver', zip: '80202', description: 'Some place', image_url: 'https://place-puppy.com/300x300' )
 
     get "/api/v1/destinations/#{dest_1.id}"
     rsp = JSON.parse(response.body, symbolize_names: true)
@@ -47,7 +47,7 @@ describe 'Expose RESTful API endpoints for Destinations' do
   end
 
   it "can update a destination" do
-    dest_1 = Destination.create!( id: 1, name: 'Denver', zip: '80202', description: 'Some place', image_url: 'https://place-puppy.com/300x300' )
+    dest_1 = Destination.create!( name: 'Denver', zip: '80202', description: 'Some place', image_url: 'https://place-puppy.com/300x300' )
     destination_name = Destination.first.name
     destination_params = { "name": 'Golden' }
     
@@ -64,7 +64,7 @@ describe 'Expose RESTful API endpoints for Destinations' do
   end
 
   it "can destroy a destination" do
-    dest_1 = Destination.create!( id: 1, name: 'Denver', zip: '80202', description: 'Some place', image_url: 'https://place-puppy.com/300x300' )
+    dest_1 = Destination.create!( name: 'Denver', zip: '80202', description: 'Some place', image_url: 'https://place-puppy.com/300x300' )
 
     expect {delete "/api/v1/destinations/#{dest_1.id}"}.to change {Destination.count}.by(-1)
 

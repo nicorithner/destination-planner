@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Destination Show Page" do
   describe "As a Visitor" do
     before :each do
-      @dest_1 = Destination.create!( id: 1, name: 'Denver', zip: '80202', description: 'Some place', image_url: 'https://place-puppy.com/300x300' )
+      @dest_1 = Destination.create!( name: 'Denver', zip: '80202', description: 'Some place', image_url: 'https://place-puppy.com/300x300' )
       @destination = DestinationFacade.get_destination_data(@dest_1.id)
     end
 
