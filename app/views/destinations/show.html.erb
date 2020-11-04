@@ -20,10 +20,10 @@
     <div class="forecast">
       <h4>Forecast for <%= @destination.name %>:</h4>
       <p>Date: <%=Time.now.strftime(" %A, %m, %d")%></p>
-      <p>Current Weather: <%= @weather.temperature %></p>
-      <p>High: <%= @weather.high %></p>
-      <p>Low: <%= @weather.low %></p>
-      <p>Low: <%= @weather.summary %></p>
+      <p>Current Weather: <%= @destination.temperature %></p>
+      <p>High: <%= @destination.high %></p>
+      <p>Low: <%= @destination.low %></p>
+      <p>Low: <%= @destination.summary %></p>
     </div>
   </div>
 
