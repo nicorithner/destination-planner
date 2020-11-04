@@ -1,6 +1,5 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
-
   <h3>
     <%= @destination.name %>
   </h3>
@@ -21,7 +20,7 @@
     <div class="forecast">
       <h4>Forecast for <%= @destination.name %>:</h4>
       <p>Date: <%=Time.now.strftime(" %A, %m, %d")%></p>
-      <p>Current Weather: <%= @weather.weather %></p>
+      <p>Current Weather: <%= @weather.temperature %></p>
       <p>High: <%= @weather.high %></p>
       <p>Low: <%= @weather.low %></p>
       <p>Low: <%= @weather.description %></p>
