@@ -11,8 +11,10 @@ RSpec.describe "Destination Show Page" do
 
     it "Can see destination's info" do
       visit root_path
-      click_on 'Show'
-      expect(path).to be("/destinations/#{@dest_1}")
+      within(".dest-#{@dest_1.id}") do
+        click_on 'Show'
+        expect(current_path).to eq("/destinations/#{@dest_1.id}")
+      end
 
       expect(page).to have_content(@dest_1.name)
       expect(page).to have_content(@dest_1.zip)
