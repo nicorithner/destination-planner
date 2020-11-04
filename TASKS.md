@@ -52,6 +52,8 @@ The forecast should include date (weekday, month and day), current, high and low
 
 For this story, we will using the [Giphy API](https://developers.giphy.com/).
 
+    - [x] Done
+    
     As a user
     When I visit "/"
     And I click on a destination
