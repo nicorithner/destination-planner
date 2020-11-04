@@ -6,9 +6,7 @@ class DestinationsController < ApplicationController
   end
 
   def show
-    @destination = Destination.find(params[:id])
-    @weather = WeatherFacade.get_weather(@destination)
-    # binding.pry
+    @destination = DestinationFacade.get_destination_data(params[:id])
   end
 
   def new
