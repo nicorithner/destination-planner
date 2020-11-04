@@ -42,5 +42,7 @@ describe 'Expose RESTful API endpoints for Destinations' do
     rsp = JSON.parse(response.body, symbolize_names: :true)
     expect(response).to be_successful
 
+    expect(rsp[:data][:attributes][:name]).to eq(destination_params[:name])
+    expect(rsp[:data][:attributes][:description]).to eq(destination_params[:description])
   end
 end
