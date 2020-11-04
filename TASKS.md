@@ -25,14 +25,25 @@ We’ll be working off of [Destination Planner](https://github.com/turingschool-
 
 1. ### Current Weather
 
+- [x] Completed
+
 For this story, we will be using the [OpenWeatherMap API](https://openweathermap.org/api). Sign up for an api key and familiarize yourself with the documentation. Please note that it may take a while for your api key to be activated.
 
 ```
+Destination info features test:
+
+- [x] Done
+
 As a user
 When I visit "/"
 And I click on a destination
 Then I should be on page "/destinations/:id"
 Then I should see the destination's name, zipcode, description, and current weather
+
+Retrieve and display weather:
+
+- [x] Done
+
 The weather forecast is specific to the destination whose page I'm on
 The forecast should include date (weekday, month and day), current, high and low temps in Fahrenheit, and a summary (for example "light rain", "clear sky", etc.)
 ```
