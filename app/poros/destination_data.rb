@@ -5,9 +5,9 @@ class DestinationData
     @name = data[:name]
     @zip = data[:zip]
     @description = data[:description]
-    @temperature = data[:temperature]
-    @high = data[:high]
-    @low = data[:low]
+    @temperature = data[:temperature].round
+    @high = data[:high].round
+    @low = data[:low].round
     @summary = data[:summary]
     @image_url = data[:image_url]
   end
