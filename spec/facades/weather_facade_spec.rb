@@ -9,6 +9,6 @@ RSpec.describe "Weather Facade" do
     expect(weather.temperature).to be_a(Numeric)
     expect(weather.high).to be_a(Numeric)
     expect(weather.low).to be_a(Numeric)
-    expect(weather.description).to be_a(String)
+    expect(weather.summary).to be_a(String)
   end
 end
