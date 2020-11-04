@@ -1,5 +1,5 @@
 class DestinationData
-  attr_reader :name, :zip , :description , :temperature , :high, :low, :summary, :image_url
+  attr_reader :id, :name, :zip , :description , :temperature , :high, :low, :summary, :image_url
   def initialize(data)
     @id = nil
     @name = data[:name]
