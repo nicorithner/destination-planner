@@ -8,6 +8,7 @@ RSpec.describe "WeatherService" do
     expect(weather).to be_a(Hash)
     expect(weather).to have_key(:weather)
     expect(weather[:weather][0]).to have_key(:description)
+    expect(weather[:main]).to have_key(:temp)
     expect(weather[:main]).to have_key(:temp_min)
     expect(weather[:main]).to have_key(:temp_max)
 
