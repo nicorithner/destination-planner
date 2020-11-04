@@ -45,4 +45,22 @@ describe 'Expose RESTful API endpoints for Destinations' do
     expect(rsp[:data][:attributes][:name]).to eq(destination_params[:name])
     expect(rsp[:data][:attributes][:description]).to eq(destination_params[:description])
   end
+
+  it "can update a destination" do
+    dest_1 = Destination.create!( id: 1, name: 'Denver', zip: '80202', description: 'Some place', image_url: 'https://place-puppy.com/300x300' )
+    destination_name = Destination.first.name
+    destination_params = { "name": 'Golden' }
+    
+    patch "/api/v1/destinations/#{dest_1.id}", params: destination_params
+    
+    rsp = JSON.parse(response.body, symbolize_names: true)
+    
+    destination = Destination.find_by(id: dest_1.id)
+    
+    updated_destination = rsp[:data]
+    expect(updated_destination[:attributes][:name]).to eq(destination.name)
+    expect(updated_destination[:attributes][:description]).to eq(destination.description)
+    expect(updated_destination[:attributes][:name]).to_not eq(destination_name)
+  end
+
 end
