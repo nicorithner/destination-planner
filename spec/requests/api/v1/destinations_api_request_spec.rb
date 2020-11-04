@@ -63,4 +63,13 @@ describe 'Expose RESTful API endpoints for Destinations' do
     expect(updated_destination[:attributes][:name]).to_not eq(destination_name)
   end
 
+  it "can destroy a destination" do
+    dest_1 = Destination.create!( id: 1, name: 'Denver', zip: '80202', description: 'Some place', image_url: 'https://place-puppy.com/300x300' )
+
+    expect {delete "/api/v1/destinations/#{dest_1.id}"}.to change {Destination.count}.by(-1)
+
+    expect(response).to be_successful
+    expect(response.status).to eq(204)
+
+  end
 end
