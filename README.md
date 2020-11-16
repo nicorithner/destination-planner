@@ -19,3 +19,5 @@ bundle install
 rails db:{create,migrate,seed}
 rails server
 ```
+
+[Instructions](https://backend.turing.io/module3/practice_assessments/practice_assessment)
