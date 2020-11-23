@@ -6,4 +6,3 @@ deploy:
   on:
     repo: nicorithner/destination-planner
     branch: main
-  skip_cleanup: 'true'
