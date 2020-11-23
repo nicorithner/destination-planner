@@ -1,3 +1,8 @@
+language: ruby
+rbenv:
+- 2.5.3
+script:
+- bundle exec rspec
 deploy:
   provider: heroku
   api_key:
@@ -6,4 +11,3 @@ deploy:
   on:
     repo: nicorithner/destination-planner
     branch: main
-  skip_cleanup: 'true'
