@@ -6,6 +6,7 @@ class DestinationsController < ApplicationController
   end
 
   def show
+    @destination = DestinationFacade.get_destination_data(params[:id])
   end
 
   def new

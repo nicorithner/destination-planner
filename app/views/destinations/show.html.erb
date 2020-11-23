@@ -1,6 +1,5 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
-
   <h3>
     <%= @destination.name %>
   </h3>
@@ -18,8 +17,14 @@
   <%= image_tag(@destination.image_url) %>
 
   <div class="row">
-    <h4>Forecast for <%= @destination.name %>:</h4>
-
+    <div class="forecast">
+      <h4>Forecast for <%= @destination.name %>:</h4>
+      <p>Date: <%=Time.now.strftime(" %A, %m, %d")%></p>
+      <p>Current Weather: <%= @destination.temperature %></p>
+      <p>High: <%= @destination.high %></p>
+      <p>Low: <%= @destination.low %></p>
+      <p>Low: <%= @destination.summary %></p>
+    </div>
   </div>
 
   <div class="row">
